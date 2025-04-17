@@ -106,23 +106,23 @@ function afficherQuestion() {
 
     // Créer un tableau de réponses et leurs images respectives
     const images = {
-        "raiponce": "raiponce.jpg",
-        "cendrillon": "cendrillon.jpg",
-        "belle": "belle.jpg",
-        "ariel": "ariel.jpg",
-        "aladdin": "aladdin.jpg",
-        "blanche neige": "blanche neige.jpg",
-        "simba": "simba.jpg",
-        "elsa": "elsa.jpg",
-        "mulan": "mulan.jpg",
-        "vaiana": "vaiana.jpg",
-        "peter pan": "peter pan.jpg",
-        "hercule": "hercule hercule.jpg",
-        "mufasa": "mufasa.jpg",
-        "scar": "scar.jpg",
-        "rafiki": "rafiki.jpg",
-        "anna": "anna.jpg",
-        "jasmine": "jasmine.jpg"
+        "raiponce": "images/raiponce.jpg",
+        "cendrillon": "images/cendrillon.jpg",
+        "belle": "images/belle.jpg",
+        "ariel": "images/ariel.jpg",
+        "aladdin": "images/aladdin.jpg",
+        "blanche neige": "images/blanche neige.jpg",
+        "simba": "images/simba.jpg",
+        "elsa": "images/elsa.jpg",
+        "mulan": "images/mulan.jpg",
+        "vaiana": "images/vaiana.jpg",
+        "peter pan": "images/peter pan.jpg",
+        "hercule": "images/hercule hercule.jpg",
+        "mufasa": "images/mufasa.jpg",
+        "scar": "images/scar.jpg",
+        "rafiki": "images/rafiki.jpg",
+        "anna": "images/anna.jpg",
+        "jasmine": "images/jasmine.jpg"
     };
     
 
