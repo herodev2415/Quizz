@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="quizz.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Disney</title>
+</head>
+<body>
+    <div id="quiz-box">
+        <!-- Le grand titre -->
+        <h1>✨ Quiz Disney 🏰</h1>
+        
+        <!-- Le nombre de question/10 -->
+        <div id="question-number"></div>
+        
+        <!-- Les questions posées -->
+        <div id="question"></div>
+        
+        <!-- Le choix des réponses -->
+        <div id="choices" class="choices"></div>
+        
+        <!-- Le score final -->
+        <div id="result"></div>
+        
+        <div class="score-progress-container">
+            <div class="score-bar"></div>
+            <div id="progress-percentage">0%</div>
+            <div id="progress-emoji" class="emoji">🙂</div>
+        </div>
+
+        <!-- Bouton pour corriger les réponses -->
+        <button id="show-corrections" onclick="afficherCorrections()" style="display: none;">
+            <strong>Corriger mes réponses ✨</strong>
+        </button>
+
+        <!-- Section des corrections -->
+        <div id="corrections"></div>
+    </div>
+
+    <script src="quizz.js"></script>
+</body>
+</html>

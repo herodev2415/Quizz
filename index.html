@@ -1,0 +1,239 @@
+<!-- <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Disney</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #fef3c7;
+    }
+    #quiz-box {
+      max-width: 600px;
+      margin: auto;
+      background-color: #fff8dc;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+    }
+    h1 {
+      text-align: center;
+      color: #d97706;
+    }
+    #question {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #f59e0b;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div id="quiz-box">
+  <h1>Quiz Disney</h1>
+  <div id="question"></div>
+  <input type="text" id="answer" placeholder="Votre réponse ici">
+  <button onclick="submitAnswer()">Valider</button>
+  <div id="result"></div>
+</div>
+
+<script>
+  const questions = [
+    "Qui a de très longs cheveux magiques et vit enfermée dans une tour ?",
+    "Quelle princesse vit sous l'océan et rêve de devenir humaine ?",
+    "Quel voleur au grand cœur trouve une lampe magique ?",
+    "Qui croque une pomme empoisonnée et tombe dans un profond sommeil ?",
+    "Quelle jeune femme perd une pantoufle de verre en fuyant un bal ?",
+    "Quel lion doit reprendre sa place en tant que roi de la savane ?",
+    "Quelle reine possède des pouvoirs de glace et vit à Arendelle ?",
+    "Quelle jeune femme tombe amoureuse d'une bête prisonnière d'un château enchanté ?",
+    "Quelle guerrière chinoise se déguise en homme pour aller à la guerre ?",
+    "Quelle héroïne traverse l'océan pour sauver son île et restaurer le cœur de Te Fiti ?"
+  ];
+
+  const reponses = [
+    "raiponce",
+    "ariel",
+    "aladdin",
+    "blanche neige",
+    "cendrillon",
+    "simba",
+    "elsa",
+    "belle",
+    "mulan",
+    "vaiana"
+  ];
+
+  let score = 0;
+  let index = 0;
+
+  const questionElement = document.getElementById("question");
+  const answerInput = document.getElementById("answer");
+  const resultElement = document.getElementById("result");
+
+  function afficherQuestion() {
+    if (index < questions.length) {
+      questionElement.textContent = questions[index];
+      answerInput.value = "";
+      resultElement.textContent = "";
+    } else {
+      questionElement.textContent = "Quiz terminé !";
+      answerInput.style.display = "none";
+      document.querySelector("button").style.display = "none";
+      resultElement.textContent = "Votre score est : " + score + " sur 10.";
+    }
+  }
+
+  function submitAnswer() {
+    const reponseUtilisateur = answerInput.value.toLowerCase().trim();
+    if (reponseUtilisateur === reponses[index]) {
+      score++;
+      resultElement.textContent = "Bonne réponse !";
+    } else {
+      resultElement.textContent = "Mauvaise réponse ! La bonne réponse était : " + reponses[index];
+    }
+    index++;
+    setTimeout(afficherQuestion, 1500);
+  }
+
+  afficherQuestion();
+</script>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="index.css">
+  <title>Quiz Disney</title>
+</head>
+<body>
+
+<div id="quiz-box">
+  <h1>Quiz Disney</h1>
+  <div id="question-number"></div>
+  <div id="question"></div>
+  <input type="text" id="answer" placeholder="Votre réponse ici">
+  <button id="submit-btn" onclick="submitAnswer()">Valider</button>
+  <div id="result"></div>
+  <button id="show-corrections" onclick="afficherCorrections()" style="display: none;">Corriger mes réponses</button>
+  <div id="corrections"></div>
+</div>
+
+<script>
+// Déclaration des questions et réponses dans des tableaux
+  const questions = [
+    "Qui a de très longs cheveux magiques et vit enfermée dans une tour ?",
+    "Quelle princesse vit sous l'océan et rêve de devenir humaine ?",
+    "Quel voleur au grand cœur trouve une lampe magique ?",
+    "Qui croque une pomme empoisonnée et tombe dans un profond sommeil ?",
+    "Quelle jeune femme perd une pantoufle de verre en fuyant un bal ?",
+    "Quel lion doit reprendre sa place en tant que roi de la savane ?",
+    "Quelle reine possède des pouvoirs de glace et vit à Arendelle ?",
+    "Quelle jeune femme tombe amoureuse d'une bête prisonnière d'un château enchanté ?",
+    "Quelle guerrière chinoise se déguise en homme pour aller à la guerre ?",
+    "Quelle héroïne traverse l'océan pour sauver son île et restaurer le cœur de Te Fiti ?"
+  ];
+
+  const reponses = [
+    "raiponce", "ariel", "aladdin", "blanche neige", "cendrillon",
+    "simba", "elsa", "belle", "mulan", "vaiana"
+  ];
+
+  let score = 0;
+  let index = 0;
+  const reponsesUtilisateur = [];
+
+  const questionElement = document.getElementById("question");
+  const questionNumberElement = document.getElementById("question-number");
+  const answerInput = document.getElementById("answer");
+  const resultElement = document.getElementById("result");
+  const submitBtn = document.getElementById("submit-btn");
+  const correctionsDiv = document.getElementById("corrections");
+  const showCorrectionsBtn = document.getElementById("show-corrections");
+
+  function afficherQuestion() {
+    if (index < questions.length) {
+      questionNumberElement.textContent = `Question ${index + 1} sur ${questions.length}`;
+      questionElement.textContent = questions[index];
+      answerInput.value = "";
+      resultElement.textContent = "";
+      answerInput.style.display = "block";
+      submitBtn.style.display = "inline-block";
+      submitBtn.style.backgroundColor = "#f59e0b"; // reset color
+    } else {
+      questionNumberElement.textContent = "";
+      questionElement.textContent = "Quiz terminé !";
+      answerInput.style.display = "none";
+      submitBtn.style.display = "none";
+      showCorrectionsBtn.style.display = "inline-block";
+      resultElement.textContent = `Votre score est : ${score} sur ${questions.length}.`;
+    }
+  }
+
+  function submitAnswer() {
+    const userAnswer = answerInput.value.toLowerCase().trim();
+    reponsesUtilisateur.push(userAnswer);
+
+    const correctAnswer = reponses[index];
+    const isCorrect = userAnswer === correctAnswer;
+
+    if (isCorrect) score++;
+
+    submitBtn.style.backgroundColor = isCorrect ? "#16a34a" : "#dc2626";
+    index++;
+
+    setTimeout(afficherQuestion, 1000);
+  }
+
+  function afficherCorrections() {
+    correctionsDiv.innerHTML = "<h2>Vos réponses corrigées :</h2>";
+
+    for (let i = 0; i < questions.length; i++) {
+      const div = document.createElement("div");
+      const bonne = reponses[i];
+      const utilisateur = reponsesUtilisateur[i];
+      const estJuste = utilisateur === bonne;
+
+      div.classList.add("correction-item");
+      div.classList.add(estJuste ? "correct" : "incorrect");
+
+      div.innerHTML = `
+        <strong>Q${i + 1} :</strong> ${questions[i]}<br>
+        <strong>Votre réponse :</strong> ${utilisateur || "(vide)"}<br>
+        ${estJuste ? "<strong>✅ Correct !</strong>" : `<strong>❌ Bonne réponse :</strong> ${bonne}`}
+      `;
+
+      correctionsDiv.appendChild(div);
+    }
+  }
+
+  afficherQuestion();
+</script>
+
+</body>
+</html>
+
+
+
