@@ -43,7 +43,7 @@ function recommencerQuiz() {
 
     // Après 0,5 seconde, on redirige vers la page du quiz
     setTimeout(() => {
-        window.location.href = "quizz.html";
+        window.location.href = "index.html";
     }, 500);
 }
 
